@@ -26,6 +26,7 @@ Plug 'tpope/vim-rails'
 Plug 'YankRing.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-projectionist'
 Plug 'ternjs/tern_for_vim', { 'do': 'cd ~/.vim/plugged/tern_for_vim && npm install' }
 Plug 'Shougo/neocomplete.vim', { 'do': 'sudo apt-get install vim-nox' } 
 Plug 'liuchengxu/space-vim-dark'
@@ -79,6 +80,11 @@ set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
+" Indentation
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
 " Misc
 autocmd vimenter * NERDTree " open a NERDTree automatically when vim starts up
 let NERDTreeShowHidden=1 " show hidden files on NERDTree
@@ -94,7 +100,7 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 
