@@ -32,6 +32,8 @@ Plug 'Shougo/neocomplete.vim', { 'do': 'sudo apt-get install vim-nox' }
 Plug 'liuchengxu/space-vim-dark'
 Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
+Plug 'moll/vim-node'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " Spaces & Tabs
@@ -91,6 +93,12 @@ set undodir=~/.backup/undo/,~/tmp,.
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+
+" Use italics for comments
+" http://stackoverflow.com/a/21077380
+set t_ZH=[3m
+set t_ZR=[23m
+highlight Comment cterm=italic
 
 " Misc
 set backspace=indent,eol,start " ensure backspace is working in insert mode
