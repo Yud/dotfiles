@@ -1,0 +1,5 @@
+[core]
+	editor = vim
+[alias]
+	st = status
+	ch = checkout
