@@ -34,6 +34,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'moll/vim-node'
 Plug 'jiangmiao/auto-pairs'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " Spaces & Tabs
@@ -67,7 +68,8 @@ nnoremap <leader><space> :nohlsearch<CR>
 let mapleader=","
 
 " Colors & themes
-let g:airline_theme='luna'
+"let g:airline_theme='luna'
+let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts = 1
 
 " Encoding
@@ -127,6 +129,7 @@ let g:javascript_conceal_static               = "•"
 let g:javascript_conceal_super                = "Ω"
 let g:javascript_conceal_arrow_function       = "⇒"
 let g:javascript_conceal_noarg_arrow_function = "🞅"
+set conceallevel=1
 
 " nerdcommenter
 if exists(':NERDSpaceDelims')

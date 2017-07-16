@@ -1,10 +1,12 @@
 # A xterm-256color based TERMINFO that adds the escape sequences for italic.
 #
-# Install:
+# Install
+# =======
+#  run -
 # 
 #  tic xterm-256color-italic.terminfo
-# 
-# Usage (add to .bashrc):
+#
+#  then add to .bashrc - 
 # 
 #  export TERM=xterm-256color-italic
 

@@ -8,5 +8,10 @@ if !empty(glob("~/.vim/plugged/syntastic"))
   let g:syntastic_check_on_open = 0
   let g:syntastic_check_on_wq = 0
   let g:syntastic_javascript_checkers = ['eslint']
+
+  highlight Error ctermfg=208 guifg=#D881ED
+  highlight SyntasticError ctermfg=208 guifg=#D881ED
+  highlight SyntasticErrorSign ctermfg=208 guifg=#D881ED
+  highlight SyntasticStyleErrorSign ctermfg=208 guifg=#D881ED
 endif
 
