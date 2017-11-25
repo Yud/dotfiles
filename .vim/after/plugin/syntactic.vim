@@ -14,4 +14,3 @@ if !empty(glob("~/.vim/plugged/syntastic"))
   highlight SyntasticErrorSign ctermfg=208 guifg=#D881ED
   highlight SyntasticStyleErrorSign ctermfg=208 guifg=#D881ED
 endif
-

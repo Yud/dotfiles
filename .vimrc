@@ -28,13 +28,24 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-projectionist'
 Plug 'ternjs/tern_for_vim', { 'do': 'cd ~/.vim/plugged/tern_for_vim && npm install' }
-Plug 'Shougo/neocomplete.vim', { 'do': 'sudo apt-get install vim-nox' } 
+if !has('nvim')
+  Plug 'Shougo/neocomplete.vim', { 'do': 'sudo apt-get install vim-nox' } 
+else
+  Plug 'roxma/nvim-completion-manager'
+  Plug 'vimlab/split-term.vim'
+endif
 Plug 'liuchengxu/space-vim-dark'
 Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'moll/vim-node'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'mxw/vim-jsx'
+Plug 'ruanyl/vim-fixmyjs'
+Plug 'SirVer/ultisnips'
+Plug 'epilande/vim-es2015-snippets'
+Plug 'epilande/vim-react-snippets'
 call plug#end()
 
 " Spaces & Tabs
@@ -122,6 +133,9 @@ if exists(':NERDSpaceDelims')
   map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
 endif
 
+" nerdcommenter: Add spaces after comment delimiters by default
+let NERDSpaceDelims = 1
+
 if &term =~ '256color'
   " disable Background Color Erase (BCE) so that color schemes
   " render properly when inside 256-color tmux and GNU screen.
@@ -130,3 +144,32 @@ if &term =~ '256color'
 endif
 
 set t_Co=256
+
+" disable Yggdroot/indentLine conceal on json files
+let g:indentLine_setConceal = 0
+
+" Fix vim-multiple-cursors issue when editing rjx
+" https://github.com/spf13/spf13-vim/issues/1023
+" Called once right before you start selecting multiple cursors
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+
+" Called once only when the multiple selection is canceled (default <Esc>)
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
+
+" vim jsx
+let g:jsx_ext_required = 0 " Apply jsx indention / highlighting on js & jsx files
+
+let g:fixmyjs_rc_filename = ['.eslintrc', '.eslintrc.json']
+
+" roxma/nvim-completion-manager
+" Use <TAB> to select the popup menu
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"<Paste>
