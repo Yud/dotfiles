@@ -21,6 +21,9 @@ cabbr <expr> %% expand('%:p:h')
 " enter :e /some/path/ on the command line 
 nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 
+" sneak.vim
+map s <Plug>Sneak_s
+
 " colorscheme
 colorscheme space-vim-dark
 hi Comment cterm=italic

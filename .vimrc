@@ -21,18 +21,18 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-rails'
-Plug 'YankRing.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-projectionist'
 Plug 'ternjs/tern_for_vim', { 'do': 'cd ~/.vim/plugged/tern_for_vim && npm install' }
 if !has('nvim')
   Plug 'Shougo/neocomplete.vim', { 'do': 'sudo apt-get install vim-nox' } 
+  Plug 'scrooloose/syntastic'
 else
   Plug 'roxma/nvim-completion-manager'
   Plug 'vimlab/split-term.vim'
+  Plug 'w0rp/ale'
 endif
 Plug 'liuchengxu/space-vim-dark'
 Plug 'airblade/vim-gitgutter'
@@ -46,6 +46,13 @@ Plug 'ruanyl/vim-fixmyjs'
 Plug 'SirVer/ultisnips'
 Plug 'epilande/vim-es2015-snippets'
 Plug 'epilande/vim-react-snippets'
+Plug 'Galooshi/vim-import-js', { 'do': 'npm install -g import-js' }
+Plug 'tpope/vim-repeat'
+Plug 'mattn/emmet-vim'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'justinmk/vim-sneak'
+Plug 'chiedo/vim-case-convert'
+
 call plug#end()
 
 " Spaces & Tabs
@@ -173,3 +180,16 @@ let g:fixmyjs_rc_filename = ['.eslintrc', '.eslintrc.json']
 " Use <TAB> to select the popup menu
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"<Paste>
+
+let g:ale_linters = { 'yml': ['yamllint'] }
+
+" Emmet vim
+autocmd FileType html,css,scss,javascript EmmetInstall
+
+let g:user_emmet_settings = { 'javascript': { 'extends': 'jsx' } }
+" Emmet vim - use jsx syntax (className instead of class) on js files
+" autocmd BufWritePre,BufRead *.js :set ft=jsx
+
+" Set ALE warning highlighting
+highlight ALEWarning cterm=underline ctermbg=None ctermfg=None
+highlight ALEError cterm=underline ctermbg=None ctermfg=None
