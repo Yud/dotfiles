@@ -52,6 +52,16 @@ Plug 'mattn/emmet-vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'justinmk/vim-sneak'
 Plug 'chiedo/vim-case-convert'
+Plug 'fatih/vim-go'
+Plug 'Yggdroot/indentLine'
+Plug 'iloginow/vim-stylus'
+Plug 'digitaltoad/vim-pug'
+Plug 'sgur/vim-editorconfig'
+Plug 'ap/vim-css-color'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'tomasiser/vim-code-dark'
+Plug 'craigemery/vim-autotag'
+Plug 'honza/vim-snippets'
 
 call plug#end()
 
@@ -181,7 +191,8 @@ let g:fixmyjs_rc_filename = ['.eslintrc', '.eslintrc.json']
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"<Paste>
 
-let g:ale_linters = { 'yml': ['yamllint'] }
+let g:ale_linters = { 'yml': ['yamllint'], 'javascript': ['eslint'], 'python': ['pylint'] }
+let g:ale_fixers = { 'javascript': ['eslint'], 'go': ['gofmt', 'goimports'] }
 
 " Emmet vim
 autocmd FileType html,css,scss,javascript EmmetInstall
@@ -193,3 +204,18 @@ let g:user_emmet_settings = { 'javascript': { 'extends': 'jsx' } }
 " Set ALE warning highlighting
 highlight ALEWarning cterm=underline ctermbg=None ctermfg=None
 highlight ALEError cterm=underline ctermbg=None ctermfg=None
+
+" Enable JsDoc support when opening js files
+autocmd BufReadPre,FileReadPre *.js :let g:jsdoc_allow_input_prompt = 1
+autocmd BufReadPre,FileReadPre *.js :let g:jsdoc_enable_es6 = 1
+
+" custom snippets path
+set runtimepath+=~/.vim/my-snippets/
+
+" indentLine settings
+let g:indentLine_enabled = 0
+let g:indentLine_bgcolor_term = 95
+let g:indentLine_char = '.'
+
+" Add stylus support to NerdCommenter
+let g:NERDCustomDelimiters = { 'stylus': { 'left': '//', 'leftAlt': 'FOO', 'rightAlt': 'BAR' } }

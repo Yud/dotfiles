@@ -25,5 +25,6 @@ nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 map s <Plug>Sneak_s
 
 " colorscheme
-colorscheme space-vim-dark
+colorscheme codedark
+
 hi Comment cterm=italic
